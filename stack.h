@@ -1,0 +1,76 @@
+
+#ifndef _STACK_H_
+#define _STACK_H_
+#include <iostream>
+namespace mystl {
+
+////////////////////////////////////////////////////////////////////////////////
+/// @brief Stack container adapter
+/// @ingroup MySTL
+/// @tparam T Value type
+/// @tparam Container Underlying container of stack
+////////////////////////////////////////////////////////////////////////////////
+template<typename T, class Container>
+class stack {
+  public:
+
+    ////////////////////////////////////////////////////////////////////////////
+    /// @name Constructors
+    /// @{
+
+    /// @brief Constructor
+    stack() {}
+
+    /// @}
+    ////////////////////////////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////////////////////////////
+    /// @name Capacity
+    /// @{
+
+    /// @return Size of stack
+    size_t size() const {return c.size();}
+    /// @return Does the stack contain anything?
+    bool empty() const {return c.empty();}
+
+    /// @}
+    ////////////////////////////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////////////////////////////
+    /// @name Element Access
+    /// @{
+
+    /// @return Top of stack
+    T& top() {return c.back();}
+    /// @return Top of stack
+    const T& top() const {return c.back();}
+
+    /// @}
+    ////////////////////////////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////////////////////////////
+    /// @name Modifiers
+    /// @{
+
+    /// @brief Add element to top of stack
+    /// @param val Element
+    void push(const T& val) {
+      /// @todo Implement stack push
+       c.push_back(val);
+    }
+    /// @brief Remove top element from stack
+    void pop() {
+      /// @todo Implement stack pop
+        c.pop_back();
+    }
+
+    /// @}
+    ////////////////////////////////////////////////////////////////////////////
+
+  private:
+    Container c; ///< Container for stack
+};
+
+}
+
+#endif
